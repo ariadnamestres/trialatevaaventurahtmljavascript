@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>La teva aventura</title>
+    <style>
+      body {
+        max-width: 30rem;
+        margin: 0 auto;
+      }
+
+      .text {
+        background-color: rgb(195, 204, 226);
+        padding: 2em;
+        margin-bottom: 2em;
+        font-size: x-large;
+      }
+
+      header {
+        background-color: 59c9e9;
+      }
+
+      div {
+        color: blue;
+        font-size: 20px;
+        padding: 20px;
+        background-color: cornflowerblue;
+      }
+      .imagen {
+        float: center;
+        width: 479px;
+        height: 500px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #0f8db1;
+        border-style: solid;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>El cuento de los animales</h1>
+    </header>
+
+    <main>
+      <header>
+        <div>Había una vez unos animalitos que querían jugar :)</div>
+        <img src="animales.jpg" class="imagen" />
+      </header>
+      <section class="text">text</section>
+      <footer>
+        <button onclick="ferSi()">Sí</button>
+        <button onclick="ferNo()">No</button>
+      </footer>
+    </main>
+
+    <script>
+      let historia = [
+        { text: "Los animales te dan la bienvenida, clika sí, si o sí" },
+        { text: "preparado?" },
+        { text: "quieres jugar?" },
+        { text: "vale, clica sí y elige un animal, te contaré su historia.." },
+      ];
+
+      let animals = [{ text: "gato" }, { text: "perro" }, { text: "rata" }];
+
+      let final = {
+        gato: " Había una vez un gato que fue comido por un perro. FIN",
+        perro:
+          "el perro Ronald vivió felizmente en Arizona 10 años, luego murió.",
+        rata: "la rata murió al mes de edad, comida por un gato",
+      };
+
+      let pagina = 0;
+      let text = document.querySelector(".text");
+      text.textContent = historia[pagina].text;
+
+      let escollit = animals[index++];
+
+      function onclick() {
+        if (escollit === animals[index]) {
+        }
+      }
+      function ferSi() {
+        pagina = pagina + 1;
+        if (pagina == 4) {
+          // alert('elige:entre perro gato rato');
+          let cont = 0; // variable contador siempre en los bucle
+          text.innerHTML = "";
+          while (cont < 3) {
+            //"<button><button>"
+            let pet = document.createElement("button");
+            pet.innerHTML = animals[cont].text;
+            pet.onclick = function () {
+              alert(final[this.innerHTML]);
+            };
+            text.appendChild(pet);
+            cont++; //incrementar el contador
+          }
+        } else {
+          text.textContent = historia[pagina].text;
+        }
+      }
+      function ferNo() {
+        alert("No no es una respuesta, clica sí o vete");
+        //pagina = pagina - 1;
+        //text.textContent = historia[pagina].text;
+      }
+
+      function gat() {}
+    </script>
+  </body>
+</html>
